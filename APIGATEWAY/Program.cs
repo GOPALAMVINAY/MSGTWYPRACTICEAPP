@@ -1,3 +1,4 @@
+using APIGATEWAY;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
 
@@ -9,6 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
 //add services for ocelot
 //optional false means that the file must be present ocelot.json,
 //if true if file is missing app thrown an error
@@ -27,7 +29,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+app.UseMiddleware<GatewayMiddleware>();
 app.UseAuthorization();
 
 //app.MapControllers();

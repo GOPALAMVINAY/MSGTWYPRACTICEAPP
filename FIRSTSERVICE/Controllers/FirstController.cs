@@ -25,7 +25,8 @@ namespace FIRSTSERVICE.Controllers
         public async Task<ActionResult> Greetings()
         {
             var httpClient = _httpclient.CreateClient();
-            string response = await httpClient.GetStringAsync("https://localhost:7002/api/second/greetme");
+            //string response = await httpClient.GetStringAsync("https://localhost:7002/api/second/greetme");
+            string response = await httpClient.GetStringAsync("https://localhost:7000/second/greetme");
             return Ok(response);
         }
     }

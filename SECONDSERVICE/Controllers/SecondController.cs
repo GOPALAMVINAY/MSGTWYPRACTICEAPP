@@ -24,7 +24,8 @@ namespace SECONDSERVICE.Controllers
         public async Task<ActionResult> callhello()
         {
             var http = _httpClient.CreateClient();
-            string response = await http.GetStringAsync("https://localhost:7001/api/First/Hello");
+            // string response = await http.GetStringAsync("https://localhost:7001/api/First/Hello");
+            string response = await http.GetStringAsync("https://localhost:7000/First/Hello");
             return Ok (response);
         }
     }
